@@ -1,0 +1,115 @@
+University Management System (UMS)
+The University Management System (UMS) is a web application that helps manage student grades and course information in a university setting. It provides functionalities for retrieving, creating, updating, and deleting grades and analysis of the courses.
+
+Features
+Retrieve all grades
+Retrieve a grade by ID
+Create a new grade
+Update an existing grade
+Delete a grade
+Retrieve all courses
+Retrieve a course by ID
+Technologies Used
+Backend:
+Node.js
+Express.js
+PostgreSQL (database)
+Sequelize (ORM)
+JSON Web Tokens (JWT) for authentication
+Frontend:
+[List the frontend technologies used]
+Project Structure
+The project structure is organized as follows:
+
+livecodeserver
+Copy
+├── backend/
+│   ├── controllers/         # Contains the controllers for handling HTTP requests
+│   ├── database/            # Contains the database configuration and connection from the env file
+│   ├── models/              # Contains the database models
+│   ├── routes/              # Contains the route definitions
+│   ├── services/            # Contains the business logic and interaction with the database
+│   └── app.js               # Entry point for the backend server
+└── frontend/
+    ├── app                  # Contains all the source folder realating to the UI
+    
+    
+
+Getting Started
+Prerequisites
+Node.js (version X.X.X)
+PostgreSQL (version X.X)
+Backend Setup
+Clone the repository:
+
+bash
+Copy
+git clone [https://github.com/mulsewm/UMS-APP]
+```
+
+Navigate to the backend folder:
+
+bash
+Copy
+cd backend
+```
+
+Install the dependencies:
+
+bash
+Copy
+npm install
+```
+
+Set up the database:
+
+Create a PostgreSQL database for the UMS.
+Update the database configuration in the backend/database/config.js file.
+Run the database migrations:
+
+bash
+Copy
+npx sequelize-cli db:migrate
+```
+
+Start the backend server:
+
+bash
+Copy
+npm start
+```
+
+The server should start running on `http://localhost:3000`.
+Frontend Setup
+Navigate to the frontend folder:
+
+bash
+Copy
+cd frontend
+```
+
+run this command 
+yarn install 
+and then 
+yarn dev
+
+
+API Documentation
+Grades
+GET /grades: Retrieve all grades.
+GET /grades/:id: Retrieve a grade by ID.
+POST /grades: Create a new grade.
+PUT /grades/:id: Update an existing grade.
+DELETE /grades/:id: Delete a grade.
+Courses
+GET /courses: Retrieve all courses.
+GET /courses/:id: Retrieve a course by ID.
+
+
+
+License
+[Specify the project's license if applicable]
+
+Contact
+please contact me [mulusewm@protonmail.com]
+
