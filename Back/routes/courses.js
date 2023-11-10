@@ -18,5 +18,18 @@ router.post("/", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+// Get all courses
+router.get("/", async (req, res) => {
+    try {
+      // Retrieve all courses from the database
+      const query = "SELECT * FROM courses";
+      const result = await pool.query(query);
+  
+      res.status(200).json(result.rows);
+    } catch (error) {
+      console.error("Error retrieving courses:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
 
 module.exports = router;

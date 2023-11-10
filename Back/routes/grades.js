@@ -18,5 +18,18 @@ router.post("/", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+//Get all grades 
+router.get("/", async (req, res) => {
+    try {
+      // Retrieve all grades from the database
+      const query = "SELECT * FROM grades";
+      const result = await pool.query(query);
+  
+      res.status(200).json(result.rows);
+    } catch(error) {
+      console.error("Error undefinedretrieving grades:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
 
 module.exports = router;
