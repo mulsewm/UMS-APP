@@ -10,7 +10,7 @@ const pool = new Pool({
 });
 
 pool.on("connect", () => {
-  console.log("Connected to PostgreSQL database");
+  console.log("Connected to PostgreSQL Database");
 });
 
 pool.on("error", (err) => {
@@ -44,7 +44,6 @@ const studentsSchema = `
   contact_details VARCHAR(255) NOT NULL
 `;
 
-// Create the grades table with foreign key constraints
 const gradesSchema = `
   grade_id SERIAL PRIMARY KEY,
   student_id INTEGER REFERENCES students(student_id),
@@ -53,14 +52,12 @@ const gradesSchema = `
   letter_grade VARCHAR(2) NOT NULL
 `;
 
-// Create the course_students table to represent the many-to-many relationship
 const courseStudentsSchema = `
   course_id INTEGER REFERENCES courses(course_id),
   student_id INTEGER REFERENCES students(student_id),
   PRIMARY KEY (course_id, student_id)
 `;
 
-// Create Tables
 createTable("courses", coursesSchema);
 createTable("students", studentsSchema);
 createTable("grades", gradesSchema);
