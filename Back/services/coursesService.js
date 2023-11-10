@@ -1,3 +1,4 @@
+const pool = require("../config/database");
 const pool = require("../database");
 
 const getAllCourses = async () => {
@@ -13,16 +14,16 @@ const getCourseById = async (id) => {
 };
 
 const createCourse = async (course) => {
-  const { name } = course;
-  const query = "INSERT INTO courses (name) VALUES ($1) RETURNING *";
-  const result = await pool.query(query, [name]);
+  const { title, course_code, description, credit_hours } = course;
+  const query = "INSERT INTO courses (title, course_code, description, credit_hours) VALUES ($1, $2, $3, $4) RETURNING *";
+  const result = await pool.query(query, [title, course_code, description, credit_hours]);
   return result.rows[0];
 };
 
 const updateCourse = async (id, course) => {
-  const { name } = course;
-  const query = "UPDATE courses SET name = $1 WHERE id = $2 RETURNING *";
-  const result = await pool.query(query, [name, id]);
+  const { title, course_code, description, credit_hours } = course;
+  const query = "UPDATE courses SET title = $1, course_code = $2, description = $3, credit_hours = $4 WHERE id = $5 RETURNING *";
+  const result = await pool.query(query, [title, course_code, description, credit_hours, id]);
   return result.rows[0];
 };
 

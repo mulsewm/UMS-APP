@@ -1,5 +1,7 @@
+const cors = require("cors");
+
 const express = require("express");
-const pool = require("./database");
+const pool = require("./config/database");
 
 const router = express.Router();
 

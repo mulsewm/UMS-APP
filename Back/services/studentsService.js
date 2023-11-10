@@ -13,16 +13,16 @@ const getStudentById = async (id) => {
 };
 
 const createStudent = async (student) => {
-  const { name } = student;
-  const query = "INSERT INTO students (name) VALUES ($1) RETURNING *";
-  const result = await pool.query(query, [name]);
+  const { name, contact_details } = student;
+  const query = "INSERT INTO students (name, contact_details) VALUES ($1, $2) RETURNING *";
+  const result = await pool.query(query, [name, contact_details]);
   return result.rows[0];
 };
 
 const updateStudent = async (id, student) => {
-  const { name } = student;
-  const query = "UPDATE students SET name = $1 WHERE id = $2 RETURNING *";
-  const result = await pool.query(query, [name, id]);
+  const { name, contact_details } = student;
+  const query = "UPDATE students SET name = $1, contact_details = $2 WHERE id = $3 RETURNING *";
+  const result = await pool.query(query, [name, contact_details, id]);
   return result.rows[0];
 };
 

@@ -1,4 +1,4 @@
-const pool = require("../database");
+const pool = require("../config/database");
 
 const getAllGrades = async () => {
   const query = "SELECT * FROM grades";
@@ -13,18 +13,16 @@ const getGradeById = async (id) => {
 };
 
 const createGrade = async (grade) => {
-  const { studentId, courseId, gradeValue } = grade;
-  const query =
-    "INSERT INTO grades (student_id, course_id, grade) VALUES ($1, $2, $3) RETURNING *";
-  const result = await pool.query(query, [studentId, courseId, gradeValue]);
+  const { student_id, course_id, academic_period, letter_grade } = grade;
+  const query = "INSERT INTO grades (student_id, course_id, academic_period, letter_grade) VALUES ($1, $2, $3, $4) RETURNING *";
+  const result = await pool.query(query, [student_id, course_id, academic_period, letter_grade]);
   return result.rows[0];
 };
 
 const updateGrade = async (id, grade) => {
-  const { studentId, courseId, gradeValue } = grade;
-  const query =
-    "UPDATE grades SET student_id = $1, course_id = $2, grade = $3 WHERE id = $4 RETURNING *";
-  const result = await pool.query(query, [studentId, courseId, gradeValue, id]);
+  const { student_id, course_id, academic_period, letter_grade } = grade;
+  const query = "UPDATE grades SET student_id = $1, course_id = $2, academic_period = $3, letter_grade = $4 WHERE id = $5 RETURNING *";
+  const result = await pool.query(query, [student_id, course_id, academic_period, letter_grade, id]);
   return result.rows[0];
 };
 
