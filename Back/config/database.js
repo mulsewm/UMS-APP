@@ -30,28 +30,40 @@ const createTable = async (tableName, schema) => {
 
 // Create the courses table
 const coursesSchema = `
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL
+  course_id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  course_code VARCHAR(10) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  credit_hours INTEGER NOT NULL
 `;
 
 // Create the students table
 const studentsSchema = `
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL
+  student_id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  contact_details VARCHAR(255) NOT NULL
 `;
 
 // Create the grades table with foreign key constraints
 const gradesSchema = `
-  id SERIAL PRIMARY KEY,
-  student_id INTEGER REFERENCES students(id),
-  course_id INTEGER REFERENCES courses(id),
-  grade INTEGER NOT NULL
+  grade_id SERIAL PRIMARY KEY,
+  student_id INTEGER REFERENCES students(student_id),
+  course_id INTEGER REFERENCES courses(course_id),
+  academic_period VARCHAR(50) NOT NULL,
+  letter_grade VARCHAR(2) NOT NULL
+`;
+
+// Create the course_students table to represent the many-to-many relationship
+const courseStudentsSchema = `
+  course_id INTEGER REFERENCES courses(course_id),
+  student_id INTEGER REFERENCES students(student_id),
+  PRIMARY KEY (course_id, student_id)
 `;
 
 // Create Tables
 createTable("courses", coursesSchema);
 createTable("students", studentsSchema);
 createTable("grades", gradesSchema);
-
+createTable("course_students", courseStudentsSchema);
 
 module.exports = pool;
