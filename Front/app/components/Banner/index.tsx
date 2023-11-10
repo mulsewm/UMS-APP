@@ -31,10 +31,13 @@ const Banner = () => {
             </div>
           </div>
 
-          <div className="col-span-6 flex justify-center">
+          <div
+            className="col-span-6 flex justify-center"
+            style={{ borderRadius: "10px", border: "1px dotted gray" }}
+          >
             <Image
               src="/assets/banner/bannerHeroImage.png"
-              alt="nothing"
+              alt="Hero Image"
               width={1000}
               height={805}
             />
