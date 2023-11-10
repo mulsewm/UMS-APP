@@ -94,8 +94,6 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* SIGNIN DIALOG */}
-            {/* LANGUAGE SELECTOR */}
             <div className="flex items-center">
               <span
                 className="text-slategray px-3 py-4 text-lg font-normal opacity-75 hover:opacity-100"
@@ -108,9 +106,8 @@ const Navbar = () => {
                   className="ml-2 px-3 py-2 text-slategray bg-white shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 >
                   <option value="en">EN</option>
-                  <option value="fr">AM</option>
-                  <option value="es">ORM</option>
-                  {/* Add more language options as needed */}
+                  <option value="am">AM</option>
+                  <option value="or">OR</option>
                 </select>
               </span>
             </div>
@@ -122,8 +119,6 @@ const Navbar = () => {
                 onClick={() => setIsOpen(true)}
               />
             </div>
-
-            {/* DRAWER LINKS DATA */}
 
             <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
               <Drawerdata />
