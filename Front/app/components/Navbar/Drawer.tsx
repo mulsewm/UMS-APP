@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
-
+import { MenuIcon } from "@heroicons/react/outline";
 interface DrawerProps {
   children: ReactNode;
   isOpen: boolean;
