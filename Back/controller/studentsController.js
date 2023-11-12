@@ -17,6 +17,15 @@ const getStudentById = async (req, res) => {
     if (!student) {
       return res.status(404).json({ error: "Student not found" });
     }
+
+  
+    const isUnique = await studentsService.checkUniqueStudentId(id);
+    if (!isUnique) {
+      return res.status(400).json({ error: "Student ID is not unique" });
+    }
+
+  
+
     res.json(student);
   } catch (error) {
     console.error("Error retrieving student:", error);
