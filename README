@@ -8,7 +8,7 @@ Create a new grade
 Update an existing grade
 Delete a grade
 Retrieve all courses
-Retrieve a course by ID
+Retrieve a Student by ID
 Technologies Used
 Backend:
 Node.js
@@ -17,7 +17,7 @@ PostgreSQL (database)
 Sequelize (ORM)
 JSON Web Tokens (JWT) for authentication
 Frontend:
-[List the frontend technologies used]
+React js with NEXT JS
 Project Structure
 The project structure is organized as follows:
 
@@ -37,10 +37,12 @@ Copy
 
 Getting Started
 Prerequisites
-Node.js (version X.X.X)
-PostgreSQL (version X.X)
+Node.js (version 20.9.0)
+PostgreSQL (version pgadmin4)
 Backend Setup
 Clone the repository:
+
+POST MAN for testing my API
 
 bash
 Copy
@@ -51,14 +53,14 @@ Navigate to the backend folder:
 
 bash
 Copy
-cd backend
+cd back
 ```
 
 Install the dependencies:
 
 bash
 Copy
-npm install
+yarn install
 ```
 
 Set up the database:
@@ -72,11 +74,11 @@ Copy
 npx sequelize-cli db:migrate
 ```
 
-Start the backend server:
+Start the backend server.
 
 bash
 Copy
-npm start
+yarn dev
 ```
 
 The server should start running on `http://localhost:3000`.
@@ -85,7 +87,7 @@ Navigate to the frontend folder:
 
 bash
 Copy
-cd frontend
+cd front
 ```
 
 run this command 
@@ -99,8 +101,8 @@ Grades
 GET /grades: Retrieve all grades.
 GET /grades/:id: Retrieve a grade by ID.
 POST /grades: Create a new grade.
-PUT /grades/:id: Update an existing grade.
-DELETE /grades/:id: Delete a grade.
+
+
 Courses
 GET /courses: Retrieve all courses.
 GET /courses/:id: Retrieve a course by ID.
