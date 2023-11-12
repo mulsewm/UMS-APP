@@ -93,8 +93,7 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* SIGNIN DIALOG */}
-            {/* LANGUAGE SELECTOR */}
+     
             <div className="flex items-center">
               <span
                 className="text-slategray px-3 py-4 text-lg font-normal opacity-75 hover:opacity-100"
